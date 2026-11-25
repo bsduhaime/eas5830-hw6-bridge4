@@ -64,9 +64,9 @@ def scan_blocks(chain, start_block, end_block, contract_address, eventfile='depo
         for e in events:
             e_row = pd.DataFrame([{
                 "chain": chain,
-                    "token": e["token"],
-                    "recipient": e["recipient"],
-                    "amount": e["amount"],
+                    "token": e.args["token"],
+                    "recipient": e.args["recipient"],
+                    "amount": e.args["amount"],
                     "transactionHash": e.transactionHash.hex(),
                     "address": e.address
             }])
@@ -81,9 +81,9 @@ def scan_blocks(chain, start_block, end_block, contract_address, eventfile='depo
             for e in events:
                 e_row = pd.DataFrame([{
                     "chain": chain,
-                    "token": e["token"],
-                    "recipient": e["recipient"],
-                    "amount": e["amount"],
+                    "token": e.args["token"],
+                    "recipient": e.args["recipient"],
+                    "amount": e.args["amount"],
                     "transactionHash": e.transactionHash.hex(),
                     "address": e.address
                 }])
