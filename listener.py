@@ -59,7 +59,7 @@ def scan_blocks(chain, start_block, end_block, contract_address, eventfile='depo
     if end_block - start_block < 30:
         #event_filter = contract.events.Deposit.create_filter(from_block=start_block,to_block=end_block,argument_filters=arg_filter)
         #events = event_filter.get_all_entries()
-		events = contract.events.Deposit.get_logs(from_block=start_block, to_block=end_block)
+        events = contract.events.Deposit.get_logs(from_block=start_block, to_block=end_block)
         #print( f"Got {len(events)} entries for block {block_num}" )
         for e in events:
             e_row = pd.DataFrame([{
@@ -75,7 +75,7 @@ def scan_blocks(chain, start_block, end_block, contract_address, eventfile='depo
         for block_num in range(start_block,end_block+1):
             #event_filter = contract.events.Deposit.create_filter(from_block=block_num,to_block=block_num,argument_filters=arg_filter)
             #events = event_filter.get_all_entries()
-			events = contract.events.Deposit.get_logs(from_block=block_num, to_block=block_num)
+            events = contract.events.Deposit.get_logs(from_block=block_num, to_block=block_num)
             #print( f"Got {len(events)} entries for block {block_num}" )
             # Deposit records "token", "to", "amount"
             for e in events:
